@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MVP Grupo 4 · Conecta tu talento con tu primera pasantía</title>
+  <meta name="description" content="Plataforma que conecta estudiantes, recién graduados y autodidactas con empresas que ofrecen pasantías." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%232563FF'/><text x='50' y='66' font-size='48' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'>G4</text></svg>" />
+</head>
+<body>
+  <div class="app">
+    <!-- ============ SIDEBAR ============ -->
+    <aside class="sidebar" id="sidebar">
+      <a href="#/feed" class="brand">
+        <span class="brand-logo">G4</span>
+        <span class="brand-text">MVP <b>Grupo 4</b></span>
+      </a>
+
+      <nav class="nav" aria-label="Navegación principal">
+        <a href="#/feed" data-route="feed"><span class="ico" data-icon="home"></span><span>Inicio / Feed</span></a>
+        <a href="#/academia" data-route="academia"><span class="ico" data-icon="book"></span><span>Consejos CV</span></a>
+        <a href="#/scanner" data-route="scanner"><span class="ico" data-icon="spark"></span><span>Evaluador IA</span><em class="pill-new">IA</em></a>
+        <a href="#/vacantes" data-route="vacantes"><span class="ico" data-icon="briefcase"></span><span>Vacantes</span></a>
+        <a href="#/inbox" data-route="inbox"><span class="ico" data-icon="chat"></span><span>Inbox</span><em class="badge" id="inboxBadge">3</em></a>
+        <a href="#/red" data-route="red"><span class="ico" data-icon="users"></span><span>Red y Empresas</span></a>
+        <a href="#/perfil" data-route="perfil"><span class="ico" data-icon="user"></span><span>Mi Perfil</span></a>
+      </nav>
+
+      <div class="sidebar-card">
+        <p class="sc-title">Tu CV está al <b id="sbScore">86%</b></p>
+        <div class="progress"><span style="width:86%"></span></div>
+        <a href="#/scanner" class="btn btn-sm btn-light">Mejorar con IA</a>
+      </div>
+    </aside>
+
+    <!-- ============ MAIN ============ -->
+    <div class="main-wrap">
+      <header class="topbar">
+        <button class="icon-btn menu-btn" id="menuBtn" aria-label="Abrir menú"><span data-icon="menu"></span></button>
+        <label class="search">
+          <span data-icon="search"></span>
+          <input type="search" id="globalSearch" placeholder="Buscar vacantes, empresas o personas…" autocomplete="off" />
+        </label>
+        <div class="top-actions">
+          <button class="icon-btn" id="notifBtn" aria-label="Notificaciones"><span data-icon="bell"></span><i class="dot"></i></button>
+          <a href="#/perfil" class="me-chip" id="meChip"></a>
+        </div>
+      </header>
+
+      <main id="view" class="view" tabindex="-1"></main>
+    </div>
+
+    <!-- Mobile bottom nav -->
+    <nav class="bottom-nav" aria-label="Navegación móvil">
+      <a href="#/feed" data-route="feed"><span data-icon="home"></span><small>Inicio</small></a>
+      <a href="#/academia" data-route="academia"><span data-icon="book"></span><small>Consejos</small></a>
+      <a href="#/scanner" data-route="scanner" class="bn-main"><span data-icon="spark"></span></a>
+      <a href="#/vacantes" data-route="vacantes"><span data-icon="briefcase"></span><small>Vacantes</small></a>
+      <a href="#/inbox" data-route="inbox"><span data-icon="chat"></span><small>Inbox</small></a>
+    </nav>
+  </div>
+
+  <div class="scrim" id="scrim"></div>
+
+  <!-- Reusable modal -->
+  <dialog id="modal" class="modal" closedby="any">
+    <button class="icon-btn modal-close" id="modalClose" aria-label="Cerrar"><span data-icon="x"></span></button>
+    <div id="modalBody"></div>
+  </dialog>
+
+  <!-- Notifications popover -->
+  <div id="notifPanel" class="notif-panel" popover>
+    <h4>Notificaciones</h4>
+    <ul>
+      <li><b>Camila Torres</b> te envió un mensaje sobre la pasantía Frontend. <small>Hace 5 min</small></li>
+      <li><b>NovaTech</b> publicó una nueva vacante que coincide 92% con tu perfil. <small>Hace 1 h</small></li>
+      <li><b>Mateo Castillo</b> comentó tu publicación. <small>Hace 3 h</small></li>
+      <li>Ganaste la insignia <b>🔥 Racha de 7 días</b>. <small>Ayer</small></li>
+    </ul>
+  </div>
+
+  <div class="toasts" id="toasts" aria-live="polite"></div>
+
+  <!-- Optional parsers for CV upload (PDF / Word) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.8.0/mammoth.browser.min.js" defer></script>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
